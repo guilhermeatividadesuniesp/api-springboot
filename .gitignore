@@ -1,0 +1,8 @@
+/.mvn
+/.idea
+/target
+/.classpath
+/.project
+/.settings
+*.iml
+**/application-local.yml
