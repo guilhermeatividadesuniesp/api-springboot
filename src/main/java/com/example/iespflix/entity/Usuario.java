@@ -1,6 +1,8 @@
 package com.example.iespflix.entity;
 
+import com.example.iespflix.enums.Perfil;
 import com.example.iespflix.validation.CPFouCNPJ;
+import com.example.iespflix.validation.ValidEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -50,6 +52,7 @@ public class Usuario {
 
     @Column(name = "perfil", length = 20, nullable = false)
     @NotBlank
+    @ValidEnum(enumClass = Perfil.class, ignoreCase = true)
     private String perfil;
 
     @CreationTimestamp

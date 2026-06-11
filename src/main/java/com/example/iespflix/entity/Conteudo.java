@@ -1,5 +1,7 @@
 package com.example.iespflix.entity;
 
+import com.example.iespflix.enums.TipoConteudo;
+import com.example.iespflix.validation.ValidEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -30,6 +32,7 @@ public class Conteudo {
 
     @Column(name = "tipo", length = 10, nullable = false)
     @NotBlank
+    @ValidEnum(enumClass = TipoConteudo.class, ignoreCase = true)
     private String tipo; // FILME | SERIE
 
     @Column(name = "ano", nullable = false)

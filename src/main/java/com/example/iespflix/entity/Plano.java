@@ -1,5 +1,7 @@
 package com.example.iespflix.entity;
 
+import com.example.iespflix.enums.CodigoPlano;
+import com.example.iespflix.validation.ValidEnum;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
@@ -21,6 +23,7 @@ public class Plano {
 
     @Column(name = "codigo", length = 20, nullable = false, unique = true)
     @NotBlank
+    @ValidEnum(enumClass = CodigoPlano.class, ignoreCase = true)
     private String codigo; // BASICO, PADRAO, PREMIUM
 
     @Column(name = "limite_diario", nullable = false)

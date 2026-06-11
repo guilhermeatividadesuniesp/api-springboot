@@ -1,6 +1,9 @@
 package com.example.iespflix.entity;
 
+import com.example.iespflix.enums.StatusAssinatura;
+import com.example.iespflix.validation.ValidEnum;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -30,6 +33,8 @@ public class Assinatura {
     private Plano plano;
 
     @Column(name = "status", length = 20, nullable = false)
+    @NotBlank
+    @ValidEnum(enumClass = StatusAssinatura.class, ignoreCase = true)
     private String status; // ATIVA | EM_ATRASO | CANCELADA
 
     @CreationTimestamp
